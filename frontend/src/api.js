@@ -3,8 +3,8 @@ import axios from "axios";
 
 // Create Axios instance
 const API = axios.create({
-  baseURL: "http://localhost:4000/api", // backend base URL
-  timeout: 10000,
+  baseURL: "http://localhost:4000/api", // Ensure this matches your backend base URL
+  timeout: 10000, // 10-second timeout
   headers: {
     "Content-Type": "application/json",
   },
@@ -47,7 +47,10 @@ API.interceptors.response.use(
   }
 );
 
-
+/**
+ * Optional helper to test backend connectivity.
+ * Ensure your backend has a /api/health route for testing.
+ */
 API.testConnection = async () => {
   try {
     const response = await API.get("/health");

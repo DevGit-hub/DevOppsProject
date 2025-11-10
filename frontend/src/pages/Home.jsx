@@ -43,12 +43,13 @@ export default function HomePage() {
               internship platform.
             </p>
            <div className="flex justify-center">
-              <a href="#" className="inline-block">
-               <div className="bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
-  Find Top Talent in Minutes
-</div>
+            <Link
+          to="/internship"
+          className="inline-block bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors"
+        >
+          Find Top Talent in Minutes
+        </Link>
 
-              </a>
             </div>
           </div>
           <div className="hidden lg:flex">
@@ -200,13 +201,14 @@ export default function HomePage() {
             </div>
           </div>
           <div className="mt-10">
-            <a href="#" className="inline-block">
-              <div
+           
+              <Link
+  to="/internship"
   className="bg-sky-900 hover:bg-sky-800 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-colors"
 >
   View All Internships
-</div>
-            </a>
+</Link>
+           
           </div>
         </div>
       </section>
@@ -301,15 +303,14 @@ export default function HomePage() {
             Join thousands of students who found their dream internships through our platform. Your next career
             opportunity is just a click away.
           </p>
-         <div className="inline-block">
-  <Link
-    to="/signup"
-    className="bg-teal-700 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-colors"
-  >
-    Sign Up For Free
-  </Link>
-</div>
-
+        
+            <Link
+  to="/signup"
+  className="bg-teal-700 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-colors"
+>
+  Sign Up For Free
+</Link>
+         
         </div>
       </section>
 

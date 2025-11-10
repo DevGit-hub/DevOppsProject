@@ -24,14 +24,17 @@ export default function Login() {
           password: formData.password,
         });
 
+        // If backend returns { user, token } instead of { student, token }
         const studentData = res.data.student || res.data.user;
 
+        // Store JWT token and student info
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userType", "student");
         localStorage.setItem("user", JSON.stringify(studentData));
 
         alert("Student logged in successfully!");
-        window.location.href = "/home"; 
+        window.location.href = "/home"; // Redirect to student dashboard
+
       } else {
         // Company login
         res = await API.post("/auth/login/company", {
@@ -46,7 +49,7 @@ export default function Login() {
         localStorage.setItem("user", JSON.stringify(companyData));
 
         alert("Company logged in successfully!");
-        window.location.href = "/home"; // Redirect to company dashboard
+        window.location.href = "/company/dashboard"; // Redirect to company dashboard
       }
 
     } catch (error) {
