@@ -42,6 +42,7 @@ pipeline {
                 docker run -d --name backend_c \
                   -p 4000:4000 \
                   --link mongo_c:mongo \
+                  -e MONGODB_URI='mongodb://mongo:27017/interncloud' \
                   ${BACKEND_IMAGE}
 
                 docker run -d --name frontend_c \
