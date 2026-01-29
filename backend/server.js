@@ -14,7 +14,7 @@ const app = express();
 // CORS Configuration
 // ======================
 app.use(cors({
-  origin: "http://13.127.102.245:5173", //  React app's URL
+  origin: "http://13.127.102.245:3000", //  React app's URL
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
