@@ -1,24 +1,14 @@
 # Dependencies
 node_modules
-npm-debug.log
 
-# Logs
-logs
-*.log
-npm-debug.log*
+
 
 # Environment and Secrets
 .env
-.env.test
 
 # Git
 .git
 .gitignore
 
-# IDE / Editor settings
-.vscode
-.idea
-.DS_Store
 
-# Local database data (if any)
-data
+

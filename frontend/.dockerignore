@@ -1,6 +1,6 @@
 # Dependencies
 node_modules
-npm-debug.log
+
 
 # Build output
 dist
@@ -14,7 +14,3 @@ build
 .git
 .gitignore
 
-# IDE / Editor settings
-.vscode
-.idea
-.DS_Store
