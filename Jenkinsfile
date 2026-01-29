@@ -45,7 +45,7 @@ pipeline {
                   ${BACKEND_IMAGE}
 
                 docker run -d --name frontend_c \
-                  -p 3000:3000 \
+                  -p 3000:5173 \
                   ${FRONTEND_IMAGE}
                 '''
             }
