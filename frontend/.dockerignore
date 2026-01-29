@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Build output
+dist
+build
+
+# Environment files (should be handled by Jenkins/Docker Compose)
+.env
+.env.local
+
+# Git
+.git
+.gitignore
+
+# IDE / Editor settings
+.vscode
+.idea
+.DS_Store
