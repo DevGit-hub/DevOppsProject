@@ -2,67 +2,59 @@ pipeline {
     agent any
 
     environment {
-        
-        DOCKERHUB_CREDS = 'dockerhub-creds'
         DOCKERHUB_USER = 'devthushari'
         FRONTEND_IMAGE = "${DOCKERHUB_USER}/devops_frontend:latest"
         BACKEND_IMAGE  = "${DOCKERHUB_USER}/devops_backend:latest"
-
-       
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Build Images') {
+        stage('Check Docker') {
             steps {
-                echo 'Building backend image...'
-                sh 'docker build -t interncloud-backend-image ./backend'
-
-                echo 'Building frontend image...'
-                sh 'docker build -t interncloud-frontend-image ./frontend'
+                sh 'docker --version'
             }
         }
 
-        stage('Tag Images') {
+        stage('Pull Images from Docker Hub') {
             steps {
-                sh "docker tag interncloud-backend-image ${BACKEND_IMAGE}"
-                sh "docker tag interncloud-frontend-image ${FRONTEND_IMAGE}"
-            }
-        }
-
-        stage('Push Images to Docker Hub') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDS}", usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
-                    sh 'echo $DH_PASS | docker login -u $DH_USER --password-stdin'
-                    sh "docker push ${BACKEND_IMAGE}"
-                    sh "docker push ${FRONTEND_IMAGE}"
-                    sh 'docker logout'
-                }
+                sh '''
+                docker pull ${BACKEND_IMAGE}
+                docker pull ${FRONTEND_IMAGE}
+                '''
             }
         }
 
         stage('Deploy Containers') {
-        steps {
-            echo 'Removing old containers if they exist...'
-            sh 'docker rm -f mongo_c backend_c frontend_c || true'
+            steps {
+                echo 'Removing old containers if they exist...'
+                sh 'docker rm -f mongo_c backend_c frontend_c || true'
 
-            echo 'Deploying using Docker Compose...'
-            sh 'docker-compose up -d --build'
+                echo 'Starting containers...'
+                sh '''
+                docker run -d --name mongo_c -p 27017:27017 mongo
+
+                docker run -d --name backend_c \
+                  -p 4000:4000 \
+                  --link mongo_c:mongo \
+                  ${BACKEND_IMAGE}
+
+                docker run -d --name frontend_c \
+                  -p 3000:3000 \
+                  ${FRONTEND_IMAGE}
+                '''
+            }
         }
-    }
-
-
     }
 
     post {
         always {
-            echo 'Cleaning up unused Docker images...'
-            sh 'docker image prune -f'
+            echo 'Pipeline finished'
         }
     }
 }
