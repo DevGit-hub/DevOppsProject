@@ -1,0 +1,11 @@
+# Ignore Terraform folder
+terraform-root-learning/
+
+# Ignore node_modules (common for Node projects)
+node_modules/
+
+# Ignore environment files
+*.env
+
+# Ignore Docker files
+dist/
