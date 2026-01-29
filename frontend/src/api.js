@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create Axios instance
 const API = axios.create({
-  baseURL: "http://localhost:4000/api", // Ensure this matches your backend base URL
+  baseURL: "http://13.127.102.245:4000/api", // Ensure this matches your backend base URL
   timeout: 10000, // 10-second timeout
   headers: {
     "Content-Type": "application/json",

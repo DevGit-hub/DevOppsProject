@@ -14,7 +14,7 @@ const app = express();
 // CORS Configuration
 // ======================
 app.use(cors({
-  origin: "http://localhost:5173", // Your React app's URL
+  origin: "http://13.127.102.245:5173", //  React app's URL
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
@@ -70,7 +70,7 @@ const startServer = async () => {
     console.log("✅ MongoDB Connected");
 
     const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`🚀 Server running on http://13.127.102.245:${PORT}`));
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err);
     process.exit(1); 
