@@ -85,7 +85,7 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="bg-gray-700 text-white px-4 py-1 rounded-md hover:bg-teal-800"
+                  className="bg-teal-700 text-white px-4 py-1 rounded-md hover:bg-teal-800"
                 >
                   Log in
                 </Link>

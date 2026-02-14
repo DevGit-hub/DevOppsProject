@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../api";
-import BACK2 from "../assets/back0.jpg";
+import BACK1 from "../assets/back1.jpg";
 
 export default function Login() {
   const [userType, setUserType] = useState("student");
@@ -60,7 +60,7 @@ export default function Login() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${BACK2})` }}
+      style={{ backgroundImage: `url(${BACK1})` }}
       >
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md bg-opacity-90">
         <h2 className="text-2xl font-bold text-center mb-6">
