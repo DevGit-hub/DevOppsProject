@@ -41,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-100 shadow-sm">
+    <nav className="bg-blue-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
@@ -85,7 +85,7 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="bg-teal-700 text-white px-4 py-1 rounded-md hover:bg-teal-800"
+                  className="bg-gray-700 text-white px-4 py-1 rounded-md hover:bg-teal-800"
                 >
                   Log in
                 </Link>
