@@ -39,14 +39,14 @@ pipeline {
         stage('Deploy Containers') {
             steps {
                 echo 'Cleaning up old containers...'
-                // This stops containers defined in your docker-compose.yml
+                
                 sh 'docker-compose down || true'
                 sh 'docker rm -f mongo_c backend_c frontend_c || true'
 
                 echo 'Deploying to EC2 using Docker Compose...'
-                // Pull latest images from Docker Hub to ensure EC2 isn't using old cache
+                
                 sh 'docker-compose pull'
-                // Start services in detached mode
+                
                 sh 'docker-compose up -d'
             }
         }
