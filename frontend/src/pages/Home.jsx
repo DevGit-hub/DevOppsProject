@@ -36,7 +36,7 @@ export default function HomePage() {
             <h1 className="text-4xl space-y-6 mt-20 md:text-5xl lg:text-6xl font-extrabold tracking-tight text-black leading-normal">
               Launch Your Career <br />
               with the Perfect{" "}
-              <span className="text-teal-700">Internship</span>
+              <span className="text-teal-700">Devika Thushari</span>
             </h1>
             <p className="max-w-[600px] text-lg text-black md:text-xl">
               Connect with top companies, gain valuable experience, and kickstart your professional journey with our
