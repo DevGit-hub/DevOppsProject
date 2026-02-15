@@ -64,7 +64,7 @@ export default function Login() {
       >
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md bg-opacity-90">
         <h2 className="text-2xl font-bold text-center mb-6">
-          {userType === "student" ? "Student Login" : "Company Login"}
+          {userType === "student" ? "Devika Thushari" : "Company Login"}
         </h2>
 
         {/* Toggle */}
